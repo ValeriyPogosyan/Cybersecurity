@@ -1,0 +1,239 @@
+Step 1: Ensure/Double Check Permissions on Sensitive Files
+
+Permissions on /etc/shadow should allow only root read and write access.
+
+Command to inspect permissions: 
+sysadmin@UbuntuDesktop:/etc$ ls -l shadow
+-rw-r----- 1 root shadow 2888 May 14 16:31 shadow
+
+Command to set permissions (if needed): 
+sysadmin@UbuntuDesktop:/etc$ sudo chmod 600 shadow
+sysadmin@UbuntuDesktop:/etc$ ls -l shadow
+-rw------- 1 root shadow 2888 May 14 16:31 shadow
+
+Permissions on /etc/gshadow should allow only root read and write access.
+
+Command to inspect permissions:
+sysadmin@UbuntuDesktop:/etc$ ls -l gshadow
+-rw-r----- 1 root shadow 1076 May 14 16:31 gshadow
+
+Command to set permissions (if needed):
+sysadmin@UbuntuDesktop:/etc$ sudo chmod 600 gshadow
+sysadmin@UbuntuDesktop:/etc$ ls -l gshadow
+-rw------- 1 root shadow 1076 May 14 16:31 gshadow
+
+Permissions on /etc/group should allow root read and write access, and allow everyone else read access only.
+
+Command to inspect permissions:
+sysadmin@UbuntuDesktop:/etc$ ls -l group
+-rw-r--r-- 1 root root 1303 May 14 16:31 group
+
+Command to set permissions (if needed):
+sysadmin@UbuntuDesktop:/etc$ sudo chmod 604 group
+sysadmin@UbuntuDesktop:/etc$ ls -l group
+-rw----r-- 1 root root 1303 May 14 16:31 group
+
+Permissions on /etc/passwd should allow root read and write access, and allow everyone else read access only.
+
+Command to inspect permissions:
+sysadmin@UbuntuDesktop:/etc$ ls -l passwd
+-rw-r--r-- 1 root root 3214 May 14 16:31 passwd
+
+Command to set permissions (if needed):
+sysadmin@UbuntuDesktop:/etc$ sudo chmod 604 passwd
+sysadmin@UbuntuDesktop:/etc$ ls -l passwd
+-rw----r-- 1 root root 3214 May 14 16:31 passwd
+
+
+Step 2: Create User Accounts
+
+
+Add user accounts for sam, joe, amy, sara, and admin.
+
+Command to add each user account (include all five users):
+
+sysadmin@UbuntuDesktop:/home$ sudo adduser sam
+Adding user `sam' ...
+Adding new group `sam' (1014) ...
+Adding new user `sam' (1012) with group `sam' ...
+Creating home directory `/home/sam' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+Changing the user information for sam
+Enter the new value, or press ENTER for the default
+	Full Name []: Sam
+	Room Number []: 1
+	Work Phone []: 476-584-5844                         
+	Home Phone []: 476-584-5844
+	Other []: 
+Is the information correct? [Y/n] y
+
+ysadmin@UbuntuDesktop:/home$ sudo adduser joe
+Adding user `joe' ...
+Adding new group `joe' (1015) ...
+Adding new user `joe' (1013) with group `joe' ...
+Creating home directory `/home/joe' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password: 
+Retype new UNIX password: 
+Sorry, passwords do not match
+passwd: Authentication token manipulation error
+passwd: password unchanged
+Try again? [y/N] y
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+Changing the user information for joe
+Enter the new value, or press ENTER for the default
+	Full Name []: Joe
+	Room Number []: 2
+	Work Phone []: 416-589-8585
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] y
+
+sysadmin@UbuntuDesktop:/home$ sudo adduser amy
+Adding user `amy' ...
+Adding new group `amy' (1016) ...
+Adding new user `amy' (1014) with group `amy' ...
+Creating home directory `/home/amy' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+Changing the user information for amy
+Enter the new value, or press ENTER for the default
+	Full Name []: AMY
+	Room Number []: 3
+	Work Phone []: 647-859-8585
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] y
+
+sysadmin@UbuntuDesktop:/home$ sudo adduser sara
+Adding user `sara' ...
+Adding new group `sara' (1017) ...
+Adding new user `sara' (1015) with group `sara' ...
+Creating home directory `/home/sara' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+Changing the user information for sara
+Enter the new value, or press ENTER for the default
+	Full Name []: SARA
+	Room Number []: 4
+	Work Phone []: 567-852-9585
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] y
+
+sysadmin@UbuntuDesktop:/home$ sudo adduser admin
+Adding user `admin' ...
+Adding new group `admin' (1018) ...
+Adding new user `admin' (1016) with group `admin' ...
+Creating home directory `/home/admin' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+Changing the user information for admin
+Enter the new value, or press ENTER for the default
+	Full Name []: ADMIN
+	Room Number []: 5
+	Work Phone []: 547-958-6321
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] y
+sysadmin@UbuntuDesktop:/home$ ls
+adam  admin  amy  billy  http  instructor  jack  jane  joe  john  max  sally  sam  sara  student  sysadmin  user.hashes  usradd  vagrant
+
+Ensure that only the admin has general sudo access.
+Command to add admin to the sudo group:
+sysadmin@UbuntuDesktop:/home$ sudo usermod -aG sudo admin
+
+sysadmin@UbuntuDesktop:/home$ sudo -l -U admin
+Matching Defaults entries for admin on UbuntuDesktop:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User admin may run the following commands on UbuntuDesktop:
+    (ALL) ALL
+    (ALL : ALL) ALL
+
+Step 3: Create User Group and Collaborative Folder
+
+Add an engineers group to the system.
+Command to add group:
+sysadmin@UbuntuDesktop:/home$ sudo addgroup engineers
+[sudo] password for sysadmin: 
+Adding group `engineers' (GID 1019) ...
+Done.
+
+Add users sam, joe, amy, and sara to the managed group.
+Command to add users to engineers group (include all four users):
+
+sysadmin@UbuntuDesktop:/home$ sudo addgroup sam engineers
+Adding user `sam' to group `engineers' ...
+Adding user sam to group engineers
+Done.
+sysadmin@UbuntuDesktop:/home$ sudo addgroup joe engineers
+Adding user `joe' to group `engineers' ...
+Adding user joe to group engineers
+Done.
+sysadmin@UbuntuDesktop:/home$ sudo addgroup amy engineers
+Adding user `amy' to group `engineers' ...
+Adding user amy to group engineers
+Done.
+sysadmin@UbuntuDesktop:/home$ sudo addgroup sara engineers
+Adding user `sara' to group `engineers' ...
+Adding user sara to group engineers
+Done.
+
+Create a shared folder for this group at /home/engineers.
+
+Command to create the shared folder:
+sysadmin@UbuntuDesktop:/home$ sudo mkdir engineers
+
+Change ownership on the new engineers' shared folder to the engineers group.
+Command to change ownership of engineer's shared folder to engineer group:
+sudo chgrp -R engineers engineers
+
+sysadmin@UbuntuDesktop:/home$ ls -ld engineers/
+drwxr-xr-x 2 root engineers 4096 Oct 10 21:01 engineers/
+
+Step 4: Lynis Auditing
+The final step on your administrator's list involves running an audit against the system in order to harden it. You'll use the system and security auditing tool Lynis to do so.
+
+Step 4: Lynis Auditing
+
+Command to install Lynis:
+Install the Lynis package to your system if it is not already installed.
+apt-get install lynis
+
+/usr/sbin/lynis
+
+Command to see documentation and instructions:
+root@UbuntuDesktop:/# man lynis
+
+Command to run an audit:
+root@UbuntuDesktop:/# ./usr/sbin/lynis audit system > /home/lynis_file
+
+Provide a report from the Lynis output on what can be done to harden the system.
+Screenshot of report output:
+Attached
+
+Bonus
+Command to install chkrootkit:
+root@UbuntuDesktop:/# apt-get install chkrootkit
+
+Command to see documentation and instructions:
+man chkrootkit
+
+Command to run expert mode:
+root@UbuntuDesktop:/# chkrootkit -x
+
+Provide a report from the chrootkit output on what can be done to harden the system.
+Screenshot of end of sample output:
+Attached
