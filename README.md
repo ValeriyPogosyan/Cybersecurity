@@ -27,20 +27,21 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 Load balancing ensures that the application will be highly available, in addition to restricting downtime to the network.
 
       A load balancer defends an organization against distributed denial-of-service (DDoS) attacks.
-	  It can do this this by shifting attack traffic from the corporate server to a public cloud provider.
+	  It can do this by shifting attack traffic from the corporate server to a public cloud provider.
 
  What is the advantage of a jump box?
  
  A jump server is a hardened and monitored device that spans two dissimilar security zones and provides a controlled means of access between them. 
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
-	What does Filebeat watch for?_
+
+	What does Filebeat watch for?
 	Filebeat monitors the log files or locations that you specify, collects log events, and forwards them either to Elasticsearch or Logstash for indexing.
 	
     What does Metricbeat record?
 	
 	Metricbeat takes the metrics and statistics that it collects and ships them to the output that you specify, such as Elasticsearch or Logstash.
-	Metricbeat helps you monitor your servers by collecting metrics from the system and services running on the server
+	Metricbeat helps you monitor the servers by collecting metrics from the system and services running on the server.
 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
@@ -60,7 +61,7 @@ Only the Jump Box machine can accept connections from the Internet. Access to th
 
 - 99.253.237.50
 
-Machines within the network can only be accessed from container.
+Machines within the network can only be accessed from a container.
 
  Which machine did you allow to access your ELK VM? What was its IP address?
  
