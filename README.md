@@ -66,7 +66,7 @@ Access to this machine is allowed from the following IP address:
  Which machine did you allow to access your ELK VM? What was its IP address?
  
  - from my personal computer's IP at port 5601
- - from the containers located on JumpBox via SSH
+ - from the containers located at JumpBox via SSH azureuser@10.0.0.4
  
 A summary of the access policies in place can be found in the table below.
 
@@ -75,7 +75,7 @@ A summary of the access policies in place can be found in the table below.
 | Jump Box | yes                   | Restricted to my personal computer IP only|
 | Web-1    | yes, via loadbalancer | 40.78.145.13 at port 80                   |
 | Web-2    | yes, via loadbalancer | 40.78.145.13 at port 80                   |
-| ELKHost  | yes                   | Public IP at port 5601 only (Kibana), SSH | 
+| ELKHost  | yes                   | Public IP at port 5601 (Kibana), SSH      | 
 
 ### Elk Configuration
 
@@ -138,7 +138,7 @@ SSH into the control node and follow the steps below:
 		
 - Create a playbook in /etc/ansible/roles/filebeat-playbook.yml
 
-- Run the playbook, and navigate to http://20.120.7.150:5601/app/kibana#/home/tutorial/systemLogs 
+- Run the playbook, and navigate to http://[ElkHost Public IP]:5601/app/kibana#/home/tutorial/systemLogs 
   to check that the installation worked as expected.
 
 	https://github.com/ValeriyPogosyan/Cybersecurity/blob/main/Images/Capture%202.JPG
@@ -184,26 +184,24 @@ SSH into the control node and follow the steps below:
    ....
    hosts: ["10.0.0.4:9200"]
    ....
-     
-   
+        
 - Which URL do you navigate to in order to check that the ELK server is running?
 
-	http://52.234.210.198:5601/app/kibana#/home
+	http://[ElkHost Public IP]:5601/app/kibana#/home
 	
 	Note: The IP address of ELK host is not static.
 	
-
 ### Using Kibana
 
 Observability
 
-- Navigate to Kibana site : http://20.121.207.61:5601/app/kibana#/home 
+- Navigate to Kibana site : http://[ElkHost Public IP]:5601/app/kibana#/home 
   Note: after restarting the VMs the public IP should be updated
   
   Filebeat:
   
 - Click Add Log Data => System Logs
-- Under Getting Started select DEB and System logs dashboard
+- Under Getting Started select DEB then System logs dashboard
 - We can see the Dashboards [Filebeat System] ECS panel for Web-1 and Web-2 with the follwing sections:
 
    -Syslog events by hostname [Filebeat System] ECS
