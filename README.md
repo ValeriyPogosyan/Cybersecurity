@@ -210,7 +210,7 @@ Observability
    
    The last section shows the follwing columns:
    
-|---------|------------------|----------------|------------|   
+
 |  Time   |	 host.hostname   | process.name	  |   message  |
 |---------|------------------|----------------|------------|
 
