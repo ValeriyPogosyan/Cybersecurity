@@ -218,12 +218,7 @@ Observability
 |---------|------------------|----------------|------------|
 
 
-Sample data:
-
-|Dec 22, 2021 @ 22:01:30.000| Web-1	| metricbeat |
-|---------------------------|-------|------------|
-|2021-12-23T03:01:30.196Z#011INFO#011[monitoring]#011log/log.go:145#011Non-zero metrics in the last 30s#011{"monitoring": {"metrics":{"beat":{"cpu":{"system":{"ticks":47870,"time":{"ms":86}},"total":{"ticks":114720,"time":{"ms":245},"value":114720},"user":{"ticks":66850,"time":{"ms":159}}},"handles":{"limit":{"hard":4096,"soft":1024},"open":15},"info":{"ephemeral_id":"a315f246-8ba2-49f2-94cd-fb7dd65793e8","uptime":{"ms":12422569}},"memstats":{"gc_next":14417264,"memory_alloc":12207272,"memory_total":16528576368},"runtime":{"goroutines":67}},"libbeat":{"config":{"module":{"running":0}},"output":{"events":{"acked":66,"batches":9,"total":66},"read":{"bytes":3541},"write":{"bytes":123959}},"pipeline":{"clients":4,"events":{"active":0,"published":66,"total":66},"queue":{"acked":66}}},"metricbeat":{"docker":{"container":{"events":3,"success":3},"cpu":{"events":3,"success":3},"diskio":{"events":3,"success":3},"info":{"events":3,"success":3},"memory":{"events":3,"success":3},"network":{"events":3,"success":3}},"system":{"cpu":{"events":3,"success":3},"load":{"events":3,"success":3},"memory":{"events":3,"success":3},"network":{"events":12,"success":12},"process":{"events":21,"success":21},"process_summary":{"events":3,"success":3},"socket_summary":{"events":3,"success":3}}},"system":{"load":{"1":0.01,"15":0,"5":0.02,"norm":{"1":0.005,"15":0,"5":0.01}}}}}}|
-										
+![Kibana Filebeat](Images/Kibana Filebeat.JPG)
 										
 
     Metricbeat:
@@ -248,6 +243,7 @@ Sample data:
     
    Adding various filters makes it possible to view exactly the data needed at the moment.
 
+![Metric Filebeat](Images/Metric Filebeat.JPG)
 
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
