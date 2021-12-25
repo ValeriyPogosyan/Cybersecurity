@@ -95,8 +95,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![Screenshot docker ps](Images/dockerps.JPG)
-
+[Screenshot docker ps](Images/dockerps.JPG)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -116,6 +115,13 @@ These Beats allow us to collect the following information from each machine:
 	
  -  Metricbeat is collecting data about Elasticsearch.
     It is the measurement of behaviour and usage of system resources that can be collected and monitored from the system.
+	
+	Filebeat data received:
+	[Filebeat](Images/Capture%202.JPG)
+	
+	Metricbeat data received:
+	[Metricbeat](Images/Capture%201.JPG)
+
 	
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured.
@@ -141,10 +147,6 @@ SSH into the control node and follow the steps below:
 
 - Run the playbook, and navigate to http://[ElkHost Public IP]:5601/app/kibana#/home/tutorial/systemLogs 
   to check that the installation worked as expected.
-
-	https://github.com/ValeriyPogosyan/Cybersecurity/blob/main/Images/Capture%202.JPG
-	
-	https://github.com/ValeriyPogosyan/Cybersecurity/blob/main/Images/Capture%201.JPG
 
  Answer the following questions to fill in the blanks:
  
