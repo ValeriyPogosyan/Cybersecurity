@@ -211,7 +211,7 @@ Observability
    -Syslog hostnames and processes [Filebeat System] ECS
    -Syslog logs [Filebeat System] ECS
    
-   The last section shows the follwing columns:
+   The last section shows the following columns:
    
 
 |  Time   |	 host.hostname   | process.name	  |   message  |
