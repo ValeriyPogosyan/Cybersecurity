@@ -95,7 +95,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-[Screenshot docker ps](Images/dockerps.JPG)
+![Screenshot docker ps](Images/dockerps.JPG)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -117,10 +117,10 @@ These Beats allow us to collect the following information from each machine:
     It is the measurement of behaviour and usage of system resources that can be collected and monitored from the system.
 	
 	Filebeat data received:
-	[Filebeat](Images/Capture%202.JPG)
+	![Filebeat](Images/Capture%202.JPG)
 	
 	Metricbeat data received:
-	[Metricbeat](Images/Capture%201.JPG)
+	![Metricbeat](Images/Capture%201.JPG)
 
 	
 ### Using the Playbook
