@@ -218,7 +218,8 @@ Observability
 |---------|------------------|----------------|------------|
 
 
-![Kibana Filebeat](Images/Kibana Filebeat.JPG)
+
+![Kibana Filebeat](Images/Kibana%20Filebeat.JPG)
 										
 
     Metricbeat:
@@ -243,7 +244,7 @@ Observability
     
    Adding various filters makes it possible to view exactly the data needed at the moment.
 
-![Metric Filebeat](Images/Metric Filebeat.JPG)
+![Metric Filebeat](Images/Metric%20Filebeat.JPG)
 
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
